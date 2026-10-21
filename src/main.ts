@@ -6,7 +6,37 @@ function buildFace(): SVGSVGElement {
   const face = document.createElementNS("http://www.w3.org/2000/svg", "svg");
   face.setAttribute("viewBox", "0 0 200 200");
   face.setAttribute("role", "img");
-  face.setAttribute("aria-label", "A neutral face");
+  face.setAttribute(
+    "aria-label",
+    "A sleepy face shaded from warm peach to cool lavender, with a lopsided smile",
+  );
+
+  // C: a dusk-to-night gradient, warm peach at the top to cool lavender below.
+  const defs = document.createElementNS("http://www.w3.org/2000/svg", "defs");
+  const dusk = document.createElementNS(
+    "http://www.w3.org/2000/svg",
+    "linearGradient",
+  );
+  dusk.setAttribute("id", "dusk");
+  dusk.setAttribute("x1", "0%");
+  dusk.setAttribute("y1", "0%");
+  dusk.setAttribute("x2", "0%");
+  dusk.setAttribute("y2", "100%");
+  const duskTop = document.createElementNS(
+    "http://www.w3.org/2000/svg",
+    "stop",
+  );
+  duskTop.setAttribute("offset", "0%");
+  duskTop.setAttribute("stop-color", "#f7c59f");
+  const duskBottom = document.createElementNS(
+    "http://www.w3.org/2000/svg",
+    "stop",
+  );
+  duskBottom.setAttribute("offset", "100%");
+  duskBottom.setAttribute("stop-color", "#9b8ec4");
+  dusk.append(duskTop, duskBottom);
+  defs.append(dusk);
+  face.append(defs);
 
   const head = document.createElementNS(
     "http://www.w3.org/2000/svg",
@@ -16,7 +46,7 @@ function buildFace(): SVGSVGElement {
   head.setAttribute("cy", "100");
   head.setAttribute("rx", "78");
   head.setAttribute("ry", "86");
-  head.setAttribute("fill", "#f3cf87");
+  head.setAttribute("fill", "url(#dusk)");
   head.setAttribute("stroke", "#302c29");
   head.setAttribute("stroke-width", "4");
   face.append(head);
@@ -53,15 +83,25 @@ function buildFace(): SVGSVGElement {
   nose.setAttribute("stroke-linecap", "round");
   face.append(nose);
 
-  const mouth = document.createElementNS("http://www.w3.org/2000/svg", "line");
-  mouth.setAttribute("x1", "75");
-  mouth.setAttribute("y1", "137");
-  mouth.setAttribute("x2", "125");
-  mouth.setAttribute("y2", "137");
+  // C: a relaxed, slightly lopsided smile as a cubic Bézier curve.
+  const mouth = document.createElementNS("http://www.w3.org/2000/svg", "path");
+  mouth.setAttribute("d", "M 72 132 C 88 154, 116 152, 130 128");
+  mouth.setAttribute("fill", "none");
   mouth.setAttribute("stroke", "#302c29");
   mouth.setAttribute("stroke-width", "4");
   mouth.setAttribute("stroke-linecap", "round");
   face.append(mouth);
+
+  // C: sleepy eyelids as quadratic Bézier curves over each eye.
+  for (const eyeX of [72, 128]) {
+    const lid = document.createElementNS("http://www.w3.org/2000/svg", "path");
+    lid.setAttribute("d", `M ${eyeX - 10} 80 Q ${eyeX} 72 ${eyeX + 10} 80`);
+    lid.setAttribute("fill", "none");
+    lid.setAttribute("stroke", "#302c29");
+    lid.setAttribute("stroke-width", "4");
+    lid.setAttribute("stroke-linecap", "round");
+    face.append(lid);
+  }
 
   return face;
 }
