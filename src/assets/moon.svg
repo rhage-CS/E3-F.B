@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40">
+  <!-- Crescent moon: hand-written SVG for the E3 portrait. -->
+  <path
+    d="M24 4 A16 16 0 1 0 36 30 A13 13 0 1 1 24 4 Z"
+    fill="#e8b931"
+    stroke="#302c29"
+    stroke-width="2"
+    stroke-linejoin="round"
+  />
+  <circle cx="14" cy="18" r="1.6" fill="#b88a12" />
+  <circle cx="11" cy="26" r="1.2" fill="#b88a12" />
+</svg>

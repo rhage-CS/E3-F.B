@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 60">
+  <!-- Night cap: hand-written SVG for the E3 portrait. -->
+  <path
+    d="M12 46 Q 18 12 52 8 Q 84 6 90 30 Q 76 20 66 24 Q 80 34 86 46 Z"
+    fill="#3d5a9e"
+    stroke="#302c29"
+    stroke-width="2.5"
+    stroke-linejoin="round"
+  />
+  <circle cx="34" cy="30" r="2.5" fill="#e8b931" />
+  <circle cx="52" cy="20" r="2.5" fill="#e8b931" />
+  <circle cx="62" cy="36" r="2.5" fill="#e8b931" />
+  <circle cx="44" cy="40" r="2" fill="#e8b931" />
+  <circle cx="90" cy="32" r="7" fill="#fdf8ec" stroke="#302c29"
+    stroke-width="2" />
+  <rect x="6" y="42" width="88" height="14" rx="7" fill="#fdf8ec"
+    stroke="#302c29" stroke-width="2.5" />
+</svg>

@@ -1,3 +1,8 @@
+// @deno-types="./asset-url.d.ts"
+import nightcapUrl from "./assets/nightcap.svg?no-inline";
+// @deno-types="./asset-url.d.ts"
+import moonUrl from "./assets/moon.svg?no-inline";
+
 const portrait = document.querySelector<HTMLDivElement>("#portrait")!;
 const spin = document.querySelector<HTMLButtonElement>("#spin")!;
 
@@ -5,7 +10,10 @@ const spin = document.querySelector<HTMLButtonElement>("#spin")!;
 const face = document.createElementNS("http://www.w3.org/2000/svg", "svg");
 face.setAttribute("viewBox", "0 0 200 200");
 face.setAttribute("role", "img");
-face.setAttribute("aria-label", "A neutral face");
+face.setAttribute(
+  "aria-label",
+  "A face wearing a starry blue night cap, with a crescent moon beside it",
+);
 
 const head = document.createElementNS("http://www.w3.org/2000/svg", "ellipse");
 head.setAttribute("cx", "100");
@@ -58,6 +66,28 @@ mouth.setAttribute("stroke", "#302c29");
 mouth.setAttribute("stroke-width", "4");
 mouth.setAttribute("stroke-linecap", "round");
 face.append(mouth);
+
+// nightcap.svg — my own images, drawn in Procreate and exported as SVG.
+const nightcap = document.createElementNS(
+  "http://www.w3.org/2000/svg",
+  "image",
+);
+nightcap.setAttribute("href", nightcapUrl);
+nightcap.setAttribute("x", "44");
+nightcap.setAttribute("y", "0");
+nightcap.setAttribute("width", "112");
+nightcap.setAttribute("height", "67");
+nightcap.setAttribute("transform", "rotate(-8 100 34)"); // tilted slightly
+face.append(nightcap);
+
+// B: moon.svg — my own image, drawn in Procreate and exported as SVG.
+const moon = document.createElementNS("http://www.w3.org/2000/svg", "image");
+moon.setAttribute("href", moonUrl);
+moon.setAttribute("x", "152");
+moon.setAttribute("y", "10");
+moon.setAttribute("width", "40");
+moon.setAttribute("height", "40");
+face.append(moon);
 
 portrait.append(face);
 
