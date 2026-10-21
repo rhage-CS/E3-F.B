@@ -5,7 +5,10 @@ const spin = document.querySelector<HTMLButtonElement>("#spin")!;
 const face = document.createElementNS("http://www.w3.org/2000/svg", "svg");
 face.setAttribute("viewBox", "0 0 200 200");
 face.setAttribute("role", "img");
-face.setAttribute("aria-label", "A neutral face");
+face.setAttribute(
+  "aria-label",
+  "A sleepy face surrounded by a twinkling halo of stars, with freckled cheeks",
+);
 
 const head = document.createElementNS("http://www.w3.org/2000/svg", "ellipse");
 head.setAttribute("cx", "100");
@@ -58,6 +61,39 @@ mouth.setAttribute("stroke", "#302c29");
 mouth.setAttribute("stroke-width", "4");
 mouth.setAttribute("stroke-linecap", "round");
 face.append(mouth);
+
+// A: a twinkling halo of 120 stars around the head.
+const starCount = 120;
+for (let i = 0; i < starCount; i++) {
+  const angle = (i / starCount) * Math.PI * 2;
+  const ringRadius = 93 + (i % 3); // 93–95: a slightly uneven ring
+  const star = document.createElementNS(
+    "http://www.w3.org/2000/svg",
+    "circle",
+  );
+  star.setAttribute("cx", String(100 + ringRadius * Math.cos(angle)));
+  star.setAttribute("cy", String(100 + ringRadius * Math.sin(angle)));
+  star.setAttribute("r", String(1.5 + ((i * 7) % 5) * 0.4)); // 1.5–3.1
+  star.setAttribute("fill", i % 4 === 0 ? "#563b67" : "#e8b931");
+  face.append(star);
+}
+
+// A: 10 freckles on each cheek, arranged in a small spiral cluster.
+for (const cheekX of [68, 132]) {
+  for (let k = 0; k < 10; k++) {
+    const angle = k * 2.4;
+    const distance = 3.5 * Math.sqrt(k);
+    const freckle = document.createElementNS(
+      "http://www.w3.org/2000/svg",
+      "circle",
+    );
+    freckle.setAttribute("cx", String(cheekX + distance * Math.cos(angle)));
+    freckle.setAttribute("cy", String(112 + distance * Math.sin(angle)));
+    freckle.setAttribute("r", "1.6");
+    freckle.setAttribute("fill", "#b5754a");
+    face.append(freckle);
+  }
+}
 
 portrait.append(face);
 
