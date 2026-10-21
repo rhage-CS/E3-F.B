@@ -26,3 +26,18 @@
 - Draw a relaxed, slightly lopsided smile as a Bézier curve.
 - Possibly a second Bézier curve for droopy, sleepy eyelids.
 - Impression: soft and calm; the color does the storytelling instead of extra objects.
+
+## Status: all three explored
+
+A: explored on branch `A`. Built mostly as planned: a ring of 120 star
+dots with slightly varied size and spacing, plus 20 freckles. Difference:
+the freckles ended up only on the cheeks, not across the nose.
+
+B: explored on branch `B`. Built as planned: a tilted starry night cap
+on the head and a crescent moon at the upper right. Difference: both images
+are SVG files written as code with Claude's help, not drawn PNGs.
+
+C: explored on branch `C`. Built as planned: the head shades from peach
+to lavender, with a lopsided cubic Bézier smile. Difference: I also added
+quadratic Bézier eyelids, and the curved smile replaced the starter's
+straight mouth.
