@@ -41,3 +41,19 @@ C: explored on branch `C`. Built as planned: the head shades from peach
 to lavender, with a lopsided cubic Bézier smile. Difference: I also added
 quadratic Bézier eyelids, and the curved smile replaced the starter's
 straight mouth.
+
+## Decision: C
+
+Chosen: **C**, the dusk-to-night gradient head with a curved, lopsided smile
+and sleepy eyelids.
+
+My criterion was that the portrait reads clearly at small size and still looks
+good while it spins. C does this best. The smooth peach-to-lavender gradient
+and one bold curved smile stay readable even when the face is shrunk to icon
+size, and the face looks calm and whole while it rotates. A's 120-star halo
+looked great large, but at small size the tiny dots blur into a fuzzy ring.
+B's night cap and moon read clearly, but they add separate image files and
+put the "night owl" idea onto props instead of into the face itself.
+
+A and B are not merged. They remain on their own branches as the record of
+the alternatives I explored.
